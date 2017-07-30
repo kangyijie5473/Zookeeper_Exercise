@@ -30,7 +30,7 @@ def doMasterWork(zk,):
         print task
         zk.create(task,value)
         id += 1
-        time.sleep(3)
+        time.sleep(1)
         if judgeStopFlag(zk) == True:
             zk.stop()
             sys.exit()

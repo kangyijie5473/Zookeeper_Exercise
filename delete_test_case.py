@@ -8,11 +8,12 @@ import time
 
 logging.basicConfig()
 
-zk = KazooClient(hosts = "192.168.30.172:2181")
+zk = KazooClient(hosts = "192.168.30.132:2181")
 zk.start()
-if zk.exists("/task/0"):
+if zk.exists("/task/"):
     zk.delete("/task",recursive = True)
     print "delete task success"
+    zk.create('/task')
 else:
     print "no delete"
 
