@@ -25,10 +25,11 @@ def doSlaveWork(zk):
 def doMasterWork(zk,):
     id = 0
     while True:
-        task = "/task/" + str(id)
+        #task = "/task/" + str(id)
+        task = '/task/cdsn-'
         value = "csdn" + str(id)
         print task
-        zk.create(task,value)
+        zk.create(task,value,sequence = True)
         id += 1
         time.sleep(1)
         if judgeStopFlag(zk) == True:
